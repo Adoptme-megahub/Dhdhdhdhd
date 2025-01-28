@@ -103,7 +103,7 @@ if game.PlaceId == 111130915266245 then
          if enable and numberValue then
             while enable do
                local args = { [1] = numberValue }
-               game:GetService("ReplicatedStorage").Remotes["Rebirth"]:InvokeServer(unpack(args))
+               game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Rebirth"):InvokeServer(unpack(args))
                task.wait(1)
                if not Rayfield.Flags["AutoRebirthToggle"].CurrentValue then break end
             end
