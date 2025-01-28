@@ -25,7 +25,7 @@ if game.PlaceId == 111130915266245 then
                wait(1)
                game:GetService("ReplicatedStorage").Remotes["Set Stat"]:FireServer("Auto Race", true)
                wait(1)
-               if not Rayfield.Flags["Toggle1"].CurrentValue then
+               if not Rayfield.Flag["Toggle1"].CurrentValue then
                   game:GetService("ReplicatedStorage").Remotes["TP"]:InvokeServer(1)
                   wait(1)
                      game:GetService("ReplicatedStorage").Remotes["Set Stat"]:FireServer("Auto Race", false)
