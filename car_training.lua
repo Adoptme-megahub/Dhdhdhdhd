@@ -14,24 +14,24 @@ if game.PlaceId == 111130915266245 then
       KeySettings = { Title = "Symbiote Register", Subtitle = "Key System", Note = "Try: GoatCypruxy", FileName = "Symbiote (key)", SaveKey = true, GrabKeyFromSite = false, Key = {"GoatCypruxy"} }
    })
 
+   local running = false
+
    Window:CreateTab("Auto Farm", 4483362458):CreateToggle({
       Name = "Enable Auto Farm",
       CurrentValue = false,
       Flag = "Toggle1",
       Callback = function(Value)
-         if Value then
-            while true do
+         running = Value
+         if running then
+            while running do
                game:GetService("ReplicatedStorage").Remotes["Join Race"]:FireServer()
                wait(1)
                game:GetService("ReplicatedStorage").Remotes["Set Stat"]:FireServer("Auto Race", true)
                wait(1)
-               if not Rayfield.Flag["Toggle1"].CurrentValue then
-                  game:GetService("ReplicatedStorage").Remotes["TP"]:InvokeServer(1)
-                  wait(1)
-                     game:GetService("ReplicatedStorage").Remotes["Set Stat"]:FireServer("Auto Race", false)
-                  break
-               end
+               if not running then break end
             end
+         else
+            game:GetService("ReplicatedStorage").Remotes["TP"]:InvokeServer(1)
          end
       end,
    })
