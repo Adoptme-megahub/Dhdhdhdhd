@@ -33,6 +33,7 @@ if game.PlaceId == 111130915266245 then
          else
             local args = { "Auto Race", false }
             game:GetService("ReplicatedStorage").Remotes["Set Stat"]:FireServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Leave Race"):FireServer()
             wait(1)
             game:GetService("ReplicatedStorage").Remotes["TP"]:InvokeServer(1)
          end
